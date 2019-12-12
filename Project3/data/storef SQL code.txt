@@ -1,0 +1,49 @@
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS "Purchase" (
+	"purchaseID"	INTEGER NOT NULL,
+	"productID"	INTEGER,
+	"customerID"	INTEGER NOT NULL,
+	"Date Time"	TEXT,
+	"Quantity"	INTEGER NOT NULL,
+	"Price"	INTEGER NOT NULL,
+	"taxrate"	INTEGER DEFAULT 0.09,
+	"total cost"	INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS "Products" (
+	"Name"	TEXT NOT NULL,
+	"productID"	INTEGER NOT NULL,
+	"Experation Date"	TEXT,
+	"Price"	INTEGER NOT NULL,
+	"taxrate"	INTEGER DEFAULT 0.09,
+	"quantity"	INTEGER,
+	"Supplier"	TEXT
+);
+CREATE TABLE IF NOT EXISTS "Customers" (
+	"Name"	TEXT NOT NULL,
+	"CustomerID"	INTEGER NOT NULL,
+	"Phone"	TEXT NOT NULL,
+	"Address"	TEXT,
+	"PaymentInfo"	TEXT NOT NULL,
+	PRIMARY KEY("CustomerID")
+);
+INSERT INTO "Purchase" VALUES (1,2,1,'10:54Am 10/10/19',15,1.75,0.09,26.25);
+INSERT INTO "Purchase" VALUES (2,5,1,'10:54Am 10/10/19',1,2000,0.09,2000);
+INSERT INTO "Purchase" VALUES (3,4,1,'10:54Am 10/10/19',8,3.75,0.09,30);
+INSERT INTO "Purchase" VALUES (4,3,4,'11:30Am 10/10/19',1,500,0.09,500);
+INSERT INTO "Purchase" VALUES (5,1,5,'11:49Am 10/10/19',4,2.25,0.09,9);
+INSERT INTO "Purchase" VALUES (6,1,3,'12:39Pm 10/10/19',11,2.25,0.09,24.75);
+INSERT INTO "Purchase" VALUES (7,4,3,'12:39Pm 10/10/19',3,3.75,0.09,11.25);
+INSERT INTO "Purchase" VALUES (8,5,2,'2:10PM 10/10/19',1,2000,0.09,2000);
+INSERT INTO "Purchase" VALUES (9,3,2,'2:10PM 10/10/19',1,500,0.09,500);
+INSERT INTO "Purchase" VALUES (10,2,4,'2:45Pm 10/10/19',6,1.75,0.09,10.5);
+INSERT INTO "Products" VALUES ('Apple',1,'10/20/2019',2.25,0.09,25,'Apple Farm Inc.');
+INSERT INTO "Products" VALUES ('Orange',2,'10/20/2019',1.75,0.09,15,'Orange Famrs Inc.');
+INSERT INTO "Products" VALUES ('Iphone',3,'N/A',500,0.09,10,'Apple ');
+INSERT INTO "Products" VALUES ('Corn',4,'10/31/2019',3.75,0.09,32,'Corn Famrs Inc.');
+INSERT INTO "Products" VALUES ('Macbook',5,'N/A',2000,0.09,5,'Apple ');
+INSERT INTO "Customers" VALUES ('Bob',1,'3342524568','123 Scenic Dr. Auburn, AL 36832','Credit Card');
+INSERT INTO "Customers" VALUES ('Dave',2,'2516849554','585 Thomas Street Auburn, AL 36832','Cash');
+INSERT INTO "Customers" VALUES ('Jane',3,'8885553363','555 ThomasSt. Auburn, al 36832','Credit Card');
+INSERT INTO "Customers" VALUES ('Anne',4,'7778889999','505 Thomas St. Auburn, AL 36832','Credit Card');
+INSERT INTO "Customers" VALUES ('Bill',5,'1112223333','777 Thomas St. Auburn, Al 36832','Cash');
+COMMIT;
